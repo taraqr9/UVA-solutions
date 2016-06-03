@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n,a,i,j,k,l,check;
+    int num[3005],sort[3005];
+    while(scanf("%d",&n)==1){
+    for(i=0;i<n;i++){
+        scanf("%d",&a);
+        num[i]=a;
+    }
+    j=0;
+    for(i=1;i<n;i++){
+        sort[j]=abs(num[i]-num[i-1]);
+        j++;
+    }
+    check=0;
+    for(i=1;i<=n-1;i++){
+        for(k=0;k<j;k++){
+            if(i==sort[k]){
+                check++;
+                break;
+        }
+
+    }
+    }
+//    printf("%d\n",check);
+  if(check==n-1) 
+  printf("Jolly\n");
+  else
+ printf("Not jolly\n");
+
+}
+}
