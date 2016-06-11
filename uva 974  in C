@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define MAX 40010
+char ara[MAX];
+int main()
+{
+long long int n,s,i,j,p,k,num1,num2,check,len,m,y;
+char str[100],str1[100],str2[100];
+ara[0]=ara[1]=0;
+for(n=2;n<MAX;n++){
+s=n*n;
+sprintf(str,"%lld",s);
+
+len=strlen(str);
+
+p=0;
+while(p<len){
+for(i=0;i<=p;i++)
+str1[i]=str[i];
+str1[i]='\0';
+num1=atoi(str1);
+m=0;
+for(j=p+1;j<len;j++)
+str2[m++]=str[j];
+str2[m]='\0';
+num2=atoi(str2);
+if(num1+num2==n&&num1>0&&num2>0){
+check=1;
+break;
+}
+else {
+check=0;
+p++;
+}
+}
+ara[n]=check;
+}
+long long int a,b,t,x=1,c;
+scanf("%lld",&t);
+for(j=1;j<=t;j++){
+scanf("%lld %lld",&a,&b);
+c=0;
+if(x!=1)
+printf("\n");
+x=0;
+printf("case #%lld\n",j);
+for(i=a;i<=b;i++){
+if(ara[i]==1){
+c=1;
+printf("%lld\n",i);
+}
+}
+if(c==0)
+printf("no kaprekar numbers\n");
+}
+return 0;
+}
