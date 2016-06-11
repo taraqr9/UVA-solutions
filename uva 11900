@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+int a=1,n,p,q,rslt,i, count,t,ara[100];
+scanf("%d",&t);
+while(t--){
+scanf("%d %d %d",&n,&p,&q);
+for(i=0;i<n;i++)
+scanf("%d",&ara[i]);
+rslt=0;
+i=0;
+count=0;
+while(1){
+rslt+=ara[i];
+            i++;
+if(rslt>q||i>p||i>n)
+break;
+count++;
+}
+printf("Case %d: %d\n",a++,count);
+}
+return 0;
+}
