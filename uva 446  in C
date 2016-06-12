@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+int hex1,hex2,t;
+char ch,c;
+scanf("%d",&t);
+while(t--){
+scanf("%x",&hex1);
+
+while(1)
+{
+ch=getchar();
+if(ch=='+'||ch=='-')
+break;
+}
+
+scanf("%x",&hex2);
+int ara1[100],ara2[100];
+int num1=hex1,num2=hex2;
+int i=0;
+while(i<13)
+{
+ara1[i]=num1%2;
+ara2[i]=num2%2;
+num1=num1/2;
+num2=num2/2;
+i++;
+}
+i=i-1;
+while(i>=0)
+{
+printf("%d",ara1[i]);
+i--;
+}
+ printf(" %c ",ch);
+i=12;
+while(i>=0)
+{
+printf("%d",ara2[i]);
+i--;
+}
+int sum;
+if(ch=='+')
+sum=hex1+hex2;
+else
+sum=hex1-hex2;
+printf(" = %d\n",sum);
+}
+return 0;
+}
