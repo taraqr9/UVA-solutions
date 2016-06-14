@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+char rev1[100],str1[100];
+void reverse(char str1[])
+{
+
+    int i,j,len1,sum,m;
+    len1=strlen(str1);
+    m=len1-1;
+    for(i=0;i<len1;i++){
+        rev1[m--]=str1[i];
+    }
+     rev1[len1]='\0';
+}
+int main()
+{
+    char str2[100];
+    long long int a,b,c;
+    int t;
+    scanf("%d",&t);
+    getchar();
+
+    while(t--){
+    gets(str2);
+    reverse(str2);
+    int count=0;
+    while(strcmp(str2,rev1)){
+        a=atoi(str2);
+        b=atoi(rev1);
+        c=a+b;
+        sprintf(str2,"%lld",c);
+        reverse(str2);
+        count++;
+    }
+    printf("%d %s\n",count,rev1);
+
+    }
+}
