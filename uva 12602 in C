@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<stdlib.h>
+int main()
+{
+    char value[27],ch,str[5];
+    int i,j,a,ara[3],calculation1,calculation2,dif,t_case, k;
+    a=65;
+    for(i=0;i<26;i++){
+        value[i]=a++;
+    }
+    value[i]='\0';
+    scanf("%d",&t_case);
+    getchar();
+    while(t_case--){
+    k=0;
+    for(i=0;i<3;i++){
+        ch=getchar();
+        for(j=0;j<26;j++){
+            if(ch==value[j]){
+                ara[k++]=j;
+                break;
+            }
+        }
+    }
+    calculation1=(ara[0]*pow(26,2))+(ara[1]*pow(26,1))+(ara[2]*pow(26,0));
+    scanf("-");
+    gets(str);
+    calculation2=atoi(str);
+    dif=abs(calculation1-calculation2);
+    if(dif<=100)
+        printf("nice\n");
+    else
+         printf("not nice\n");
+
+}
+return 0;
+}
