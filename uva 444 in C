@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+    char str[1000];
+    int ara[10000],i,j,k,l,asci,len,a;
+    while(gets(str)){
+    len=strlen(str);
+
+    if(!isdigit(str[0])){
+    j=0;
+    for(i=len-1;i>=0;i--){
+        asci=str[i];
+        while(asci>0){
+            ara[j++]=asci%10;
+            asci/=10;
+        }
+    }
+    for(k=0;k<j;k++)
+        printf("%d",ara[k]);
+
+        printf("\n");
+}
+   else{
+        l=len-1;
+
+
+     while(l>=0){
+        a=(10*(str[l]-48))+(str[l-1]-48);
+        if(a<32){
+            a=(100*(str[l]-48))+(10*(str[l-1]-48))+(str[l-2]-48);
+
+            printf("%c",a);
+            l=l-3;
+        }
+        else{
+            printf("%c",a);
+            l=l-2;
+     }
+     if(l<0)
+        break;
+    }
+    printf("\n");
+   }
+}
+return 0;
+}
