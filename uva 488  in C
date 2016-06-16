@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+    int m,n,i,j,k,t,check=1,c;
+    scanf("%d",&t);
+    while(t--){
+    scanf("%d %d",&m,&n);
+    if(check!=1)
+        printf("\n");
+    c=1;
+    for(k=1;k<=n;k++){
+
+    if(c!=1)
+        printf("\n");
+
+    for(i=1;i<=m;i++){
+        for(j=1;j<=i;j++)
+            printf("%d",i);
+        printf("\n");
+    }
+         for(i=m-1;i>=1;i--){
+        for(j=1;j<=i;j++)
+            printf("%d",i);
+            printf("\n");
+    }
+    c=0;
+}
+check=0;
+}
+}
