@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+    int cgrt,butt,i,j,khabo,a;
+    while(scanf("%d %d",&cgrt,&butt)==2){
+    khabo=cgrt;
+    a=butt;
+    while(1){
+        i=cgrt/a;
+        j=cgrt%a;
+        khabo+=i;
+        cgrt=i+j;
+         if(i+j<a)
+            break;
+    }
+    printf("%d\n",khabo);
+}
+return 0;
+}
