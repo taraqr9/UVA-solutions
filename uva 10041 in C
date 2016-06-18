@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    long long int ara[501];
+    long long int r,k,i,j,dis,ini,min,t;
+    scanf("%lld",&t);
+    while(t--){
+    scanf("%lld",&r);
+    for(i=0;i<r;i++)
+        scanf("%lld",&ara[i]);
+
+    ini=0;
+    k=0;
+    while(ini<r){
+    dis=0;
+    k++;
+    j=ara[ini];
+
+    for(i=0;i<r;i++){
+       dis+=abs((ara[i]-j));
+    }
+
+    if(k==1)
+        min=dis;
+    if(dis<min)
+        min=dis;
+    ini++;
+}
+printf("%lld\n",min);
+}
+}
