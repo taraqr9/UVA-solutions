@@ -1,0 +1,25 @@
+# include <stdio.h>
+long min (long a, long b){
+long mini=(a<b?a:b);
+return mini;
+}
+int main() {
+int i = 1, j = 1 , k = 1 , n = 1 ;
+long uglys[ 1501], next_two, next_three, next_five;
+uglys[ 1 ] = 1 ;
+while (n < 1500) {
+next_two = 2 * uglys[i];
+next_three = 3 * uglys[j];
+next_five = 5 * uglys[k];
+uglys[++n] = min (next_two, min (next_three,
+next_five));
+if (uglys[n] == next_two)
+i++;
+if (uglys[n] == next_three)
+j++;
+if (uglys[n] == next_five)
+k++;
+}
+printf("The 1500'th ugly number is %ld .\n" ,uglys[1500]);
+return 0;
+}
