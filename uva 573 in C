@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+    double H,U,D,F,F_d,height;
+    while(scanf("%lf %lf %lf %lf",&H,&U,&D,&F)==4&&H!=0){
+
+    F_d=U*(F/100);
+    height=0.0;
+    int count=0,check;
+    while(1){
+         count++;
+         if(U>0.0)
+         height+=U;
+         if(height<0.0){
+                check=0;
+            break;
+         }
+         if(height>H){
+                check=1;
+            break;
+         }
+
+         height-=D;
+         if(height<0.0){
+                check=0;
+            break;
+         }
+         if(height>H){
+                check=1;
+            break;
+         }
+          if(U>0)
+         U-=F_d;
+       
+     
+    }
+    if(check==1)
+    printf("success on day %d\n",count);
+    else
+    printf("failure on day %d\n",count);
+
+}
+}
