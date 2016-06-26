@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char word[100],guess[100],word1[100],guess1[100];
+    int i,j,len1,len2,t,count1,count2,check,k,m,len0,check_baal;
+    while(scanf("%d",&t)==1&&t!=-1){
+            getchar();
+            check_baal=0;
+    gets(word);
+    gets(guess);
+
+    m=0;
+/*want to convert word  into  word1   where all the characters occur only once*/
+    len1=strlen(word);
+    for(i=0;i<len1;i++){
+            check=1;
+        for(j=0;j<i;j++){
+            if(word[i]==word[j]){
+                check=0;
+            }
+        }
+        if(check==1)
+        word1[m++]=word[i];
+    }
+    word1[m]='\0';
+
+/*want to convert guess  into  guess1   where all the characters occur only once*/
+    m=0;
+    len2=strlen(guess);
+    for(i=0;i<len2;i++){
+            check=1;
+        for(j=0;j<i;j++){
+            if(guess[i]==guess[j]){
+                check=0;
+            }
+        }
+        if(check==1)
+        guess1[m++]=guess[i];
+    }
+    guess1[m]='\0';
+
+    len0=strlen(word1);
+
+    count1=count2=0;
+    printf("Round %d\n",t);
+/*now calculation*/
+    for(j=0;j<strlen(guess1);j++){
+         int  b=1;
+        for(i=0;i<strlen(word1);i++){
+
+            if(guess1[j]==word1[i]){
+                count1++;
+                b=0;
+            }
+
+        }
+        if(b==1) count2++;
+        if(count1==len0&&count2<7){
+                    check_baal=1;
+                printf("You win.\n");
+                break;
+            }
+            if(count2==7&&count1<len0){
+                check_baal=1;
+                printf("You lose.\n");
+                break;
+            }
+}
+ if(check_baal==0)
+    printf("You chickened out.\n");
+}
+}
+/*Thank u ♥ */
