@@ -1,0 +1,47 @@
+#include<stdio.h>
+long long chimp[1000000];
+int main()
+{
+long long test,query,Luchu,i,j,k,ans,ans2;
+while(scanf("%lld",&test)==1)
+{
+for(i=0; i<test; i++)
+{
+scanf("%lld",&chimp[i]);
+}
+scanf("%lld",&query);
+for(i=0; i<query; i++)
+{
+scanf("%lld",&Luchu);
+ans=0;
+for(j=0; j<test; j++)
+{
+if(Luchu>chimp[j])
+{
+ans=chimp[j];
+}
+else
+{
+break;
+}
+}
+if(ans==0) printf("X ");
+else printf("%lld ",ans);
+ans2=0;
+for(k=test-1; k>=0; k--)
+{
+if(Luchu<chimp[k])
+{
+ans2=chimp[k];
+}
+else
+{
+break;
+}
+}
+if(ans2==0) printf("X\n");
+else printf("%lld\n",ans2);
+}
+}
+return 0;
+}
