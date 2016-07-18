@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    int t,i,j,k,len,p,x,y,z,p1,p2;
+    scanf("%d",&t);
+    getchar();
+    while(t--){
+    gets(str);
+    len=strlen(str);
+    p=1;
+
+    for(i=0;i<len;i++){
+        if(str[i]!='?'&&str[i]!='M'&&str[i]!='E'){
+            p=0;
+            break;
+        }
+    }
+    if(p==0)  printf("no-theorem\n");
+    x=0,y=0,z=0;
+    if(p==1){
+    for(i=0;i<len;i++){
+        if(str[i]=='M')
+            p1=i;
+        if(str[i]=='E')
+            p2=i;
+    }
+    if(p1>p2) printf("no-theorem\n");
+    if(p2>p1){
+            i=0;
+    while(str[i]=='?'){
+        x++;
+        i++;
+    }
+    int j=i+1;
+    while(str[j]=='?'){
+        y++;
+        j++;
+    }
+    z=len-(x+y)-2;
+    if(x>0&&y>0&&x+y==z)
+        printf("theorem\n");
+    else
+        printf("no-theorem\n");
+
+    }
+    }
+    }
+}
