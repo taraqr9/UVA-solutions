@@ -1,0 +1,39 @@
+#include<stdio.h>
+int length;
+/* ** trying to make a recursive function which returns cycle_length of an integer n...  */
+int length_f(int n)
+{
+    if(n==1) return 1;
+    if(n%2==1){
+        n=3*n+1;
+        length++;
+    }
+    else{
+        n/=2;
+        length++;
+    }
+    length_f(n);
+    return length;
+}
+/* ** Function ends*/
+int main()
+{
+    int a,b,c,i,max_len,temp;
+    while(scanf("%d %d",&a,&b)==2){
+    printf("%d %d ",a,b);
+ /* Swapping  */
+    if(a>b){
+        temp=a;
+        a=b;
+        b=temp;
+    }
+    max_len=0;
+    for(i=a;i<=b;i++){
+        length=1; /* function ta call korar agey length=0 kore nicci...*/
+        c=length_f(i);
+        if(c>max_len)
+        max_len=c;
+    }
+   printf("%d\n",max_len);
+}
+}
