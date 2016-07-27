@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+    long long int t,n,i,j,k,counter,list[1005];
+    scanf("%lld",&t);
+    while(t--){
+    scanf("%lld",&n);
+    for(i=0;i<n;i++)
+        scanf("%lld",&list[i]);
+    counter=0;
+    for(j=1;j<n;j++){
+        for(k=0;k<j;k++){
+            if(list[k]<=list[j])
+                counter++;
+        }
+    }
+    printf("%lld\n",counter);
+}
+return 0;
+}
