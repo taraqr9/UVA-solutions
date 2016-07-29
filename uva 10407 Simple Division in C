@@ -1,0 +1,46 @@
+/* ** Finding the largest divisor which leaves the equal remainder for all integers
+** I subtract the 1st int from all int, then finding the GCD will make the expectable result
+Nur Shuvo,ICE,NSTU
+gmail: nurshuvo51@gmail.com */
+
+#include<stdio.h>
+#include<stdlib.h>
+/*This is the function which finds the GCD of two integers*/
+int GCD(int a ,int b)
+{
+    int temp,d;
+    if(a==0) return b;
+    if(b==0) return a;
+    if(a<b){
+        temp=a;
+        a=b;
+        b=temp;
+    }
+    int r=a%b;
+    return   GCD(b,r);
+}
+int main()
+{
+    int i,j,n,g,ara[1050];
+    while(scanf("%d",&n)==1&&n!=0){
+        i=0;
+        ara[i]=n;
+        i++;
+        while(scanf("%d",&ara[i])==1&&ara[i]!=0){
+
+        ara[i]=abs(ara[i]-ara[0]);
+        i++;
+        }
+        j=0;
+        ara[0]=0;   /*It will be zero */
+        g=abs(GCD(ara[1],ara[0]));
+        /* Finding GCD of all*/
+        for(j=2;j<i;j++){
+         g=abs(GCD(g,ara[j]));
+        }
+      /* now printing the GCD of all integers :) */
+        printf("%d\n",abs(g));
+       }
+       return 0;
+    }
+    /*Thank u for your patience*/
