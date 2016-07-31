@@ -1,0 +1,63 @@
+/* ** Finding the maximum GCD of a series of integers considering every possible pair  :)
+Nur Shuvo,ICE,NSTU
+gmail: nurshuvo51@gmail.com
+*/
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+/*Function to find GCD of two integers */
+    int GCD(int a ,int b)
+    {
+        int temp,d;
+        if(a==0) return b;
+        if(b==0) return a;
+        if(a<b){
+            temp=a;
+            a=b;
+            b=temp;
+        }
+        int r=a%b;
+        return   GCD(b,r);
+
+    }
+int main()
+{
+    char str[1000];
+    int t,i,j,k,len,a,m,num[105],sum,count,gcd,max;
+    double p;
+    scanf("%d",&t);
+    getchar();
+    while(t--){
+    gets(str);
+    len=strlen(str);
+    m=0;
+    /* Task-1 : String theke num gulo alada kore 'num' array te rakhbo*/
+            for(i=len-1;i>=0;i--){
+                    sum=0;
+                    a=0;
+                while(str[i]!=' '&&i>=0){
+                    p=pow(10,a);
+                    sum+=(p*(str[i]-48));
+                    a++;
+                    i--;
+                }
+                if(sum>0)
+                    num[m++]=sum;
+            }
+    /* Task-1 ends */
+   max=0;
+   /* Task-2: Now finding the maximum GCD */
+               for(j=0;j<m;j++){
+                for(k=j+1;k<m;k++){
+                    gcd=GCD(num[j],num[k]);
+                    if(gcd>max)
+                        max=gcd;
+                }
+               }
+   /* Task-2 ends > Finally printing...*/
+   printf("%d\n",max);
+   
+}
+return 0;
+}
+/*Thanks for your patience  :) */
