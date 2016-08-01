@@ -1,0 +1,54 @@
+/* ** Finding the num of different pairs of numbers( x,y) of an int n, where LCM of (x,y) equals to n...
+** Procedure is quite easy...just find the divisors of n...(Be careful so that a divisor is generated only once...)
+Then find the different pairs from the divisors applying the mentioned condition...
+** Nur Shuvo,ICE,NSTU
+** gmail: nurshuvo51@gmail.com */
+#include<stdio.h>
+#define i64 long long
+/* Function to find GCD  */
+i64 GCD(i64 a,i64 b)
+{
+    i64 swap,r;
+    if(a==0) return b;
+    if(b==0) return a;
+    if(a<b){
+        swap=a;
+        a=b;
+        b=swap;
+    }
+    r=a%b;
+    return GCD(b,r);
+
+}
+int main()
+{
+    i64 n,i,j,divisor[10000],count,root,gcd,mul,m;
+    while(scanf("%lld",&n)==1&&n!=0){
+    root=sqrt(n);
+    m=0;
+    /* task -1: Generate the divisors in array divisor[] ... */
+    for(i=1;i<=root;i++){
+        if(n%i==0){
+            divisor[m++]=i;
+            if(i!=(n/i))  /* Ei condition ta keno dici bujhco to  ;)  */
+            divisor[m++]=n/i;
+        }
+    }
+    /* task -1 ends */
+    count=0;
+    /* task-2 :Finding the expected result applying the conditions */
+    for(i=0;i<m;i++){
+        for(j=i+1;j<m;j++){
+            gcd=GCD(divisor[i],divisor[j]);
+            mul=divisor[i]*divisor[j];
+            if(mul/gcd==n){
+                 count++;
+            }
+        }
+    }
+    /* task-2 ends.. Finally printing the result */
+    printf("%lld %lld\n",n,count+1);
+}
+return 0;
+}
+/* Thanks for your patience..   valo theko  :p  */
