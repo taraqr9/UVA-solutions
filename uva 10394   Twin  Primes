@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<math.h>
+#define Max 20000000
+char prime[Max+1];
+int array[10000000];
+int twin[10000000];
+void sieve()
+{
+    int i,j,x;
+    for(i=0;i<=Max;i++)
+        prime[i]=0;
+    prime[0]=prime[1]=1;
+    for(i=4;i<=Max;i+=2)
+        prime[i]=1;
+        x=sqrt(Max);
+    for(i=3;i<=x;i+=2){
+        for(j=i*i;j<=Max;j+=i)
+            prime[j]=1;
+    }
+}
+int main()
+{
+    sieve();
+    int S,i,m,rslt1,rslt2,t;
+    m=0;
+    for(i=0;i<=Max;i++){
+        if(prime[i]==0){
+            array[m++]=i;
+        }
+    }
+    t=1;
+    for(i=0;i<m;i++){
+            rslt1=array[i];
+            rslt2=array[i+1];
+        if(rslt2-rslt1==2){
+            twin[t++]=rslt1;
+        }
+    }
+    while(scanf("%d",&S)==1){
+    printf("(%d, %d)\n",twin[S],twin[S]+2);
+}
+return 0;
+}
