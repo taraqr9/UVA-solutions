@@ -1,0 +1,52 @@
+/* gmail : nurshuvo51@gmaol.com
+Given n, Find two primes p1,p2 so that
+  1. p1+p2=n
+  2. p2-p1 is maximized
+  */
+
+#include <stdio.h>
+#include <math.h>
+#define Max 100000000
+char  prime[Max];
+void sieve()
+{
+    int i,j,x;
+    for(i=0;i<Max;i++)
+        prime[i]=0;
+    prime[0]=prime[1]=1;
+    for(i=4;i<=Max;i+=2)
+        prime[i]=1;
+    x=sqrt(Max);
+    for(i=3;i<=x;i+=2){
+        for(j=i*i;j<=Max;j+=i)
+            prime[j]=1;
+    }
+}
+int main()
+{
+    sieve();
+    int n,i,j,m,check;
+    while(scanf("%d",&n)==1)
+    {
+     if(n%2==1)
+     {
+      if(n-2>1&&prime[n-2]==0)
+         printf("%d is the sum of 2 and %d.\n",n,n-2);
+      else
+           printf("%d is not the sum of two primes!\n",n);
+      }
+     else {
+      check=0;
+      for(i=n/2;i<n;i++){
+          if(prime[i]==0&&prime[n-i]==0&&((n-i)!=i)){
+            printf("%d is the sum of %d and %d.\n",n,n-i,i);
+             check=1;
+             break;
+          }
+      }
+      if(check==0)
+        printf("%d is not the sum of two primes!\n",n);
+    }
+    }
+return 0;
+}
