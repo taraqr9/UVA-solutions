@@ -1,3 +1,7 @@
+/*
+     gmail : nurshuvo51@gmail.com
+     Nur Shuvo, ICE ,NSTU
+*/
 #include<bits/stdc++.h>
 int main()
 {
