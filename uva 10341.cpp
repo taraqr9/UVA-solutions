@@ -20,11 +20,8 @@ int main()
           else lo = mid;
     }
 
-//    if (res(0) * res(1) > 0)
-//      puts("No solution");
-    if(res(mid)>=0.000001) puts("No solution");
+    if(res(mid)>=0.000000001 || res(mid)<=-0.999999999) puts("No solution");
 
     else printf("%0.4lf\n",mid);
-    printf("%lf\n",mid);
     }
 }
